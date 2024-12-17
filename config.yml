@@ -1,0 +1,38 @@
+websocket:
+  enabled: true
+  ping_interval: 30
+  timeout: 60
+  max_connections: 1000
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8000"
+
+r_integration:
+  enabled: true
+  host: "localhost"
+  port: 6311
+  connection_timeout: 30
+  reconnect_attempts: 3
+  data_types:
+    - survival_analysis
+    - longitudinal_data
+    - equity_metrics
+    - quality_metrics
+  batch_size: 1000
+  update_interval: 5
+
+real_time_analytics:
+  enabled: true
+  buffer_size: 100
+  processing_interval: 1
+  alert_thresholds:
+    readmission_rate: 0.15
+    mortality_rate: 0.05
+    satisfaction_score: 0.8
+  monitoring:
+    enabled: true
+    metrics_retention_days: 30
+    alert_channels:
+      - email
+      - websocket
+      - dashboard
